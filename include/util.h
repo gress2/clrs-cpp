@@ -8,15 +8,22 @@
 #include <vector>
 #include <cstdlib>
 #include <iostream>
+#include <math.h>
 
 namespace clrs
 {
 namespace util
 {
+    template <size_t S>
+    std::bitset<S> random_bitset()
+    {
+        unsigned long long int max_num = (unsigned long long int)pow(2, S);
+        return std::bitset<S> (rand() % max_num);
+    }
+
     template <typename T>
     std::vector<T> random_vect(int size)
     {
-        srand(time(NULL));
         std::vector<T> v;
         for (int i = 0; i < size; i++)
         {

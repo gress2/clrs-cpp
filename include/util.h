@@ -36,9 +36,10 @@ namespace util
     template <typename T>
     void print_vect(std::vector<T> &v)
     {
+        std::cout << std::endl;
         for (int i = 0; i < v.size(); i++)
         {
-            std::cout << v.at(i) << std::endl;
+            std::cout << "[" << i << "] -> " << v.at(i) << std::endl;
         }
     }
 

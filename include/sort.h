@@ -5,7 +5,9 @@
 #ifndef CLRS_SORT_H
 #define CLRS_SORT_H
 
+#include <vector>
 #include <iostream>
+#include <math.h>
 
 namespace clrs
 {
@@ -27,6 +29,54 @@ namespace sort
                 j--;
             }
             v[j + 1] = key;
+        }
+    }
+
+    template<typename T>
+    void merge(std::vector<T> &v, size_t p, size_t q, size_t r)
+    {
+        size_t n1 = q - p + 1;
+        size_t n2 = r - q;
+
+        std::vector<T> L, R;
+
+        for (size_t i = 0; i < n1; i++)
+        {
+            L.push_back(v[p + i]);
+        }
+        for (size_t i = 0; i < n2; i++)
+        {
+            R.push_back(v[q + 1 + i]);
+        }
+        L.push_back(std::numeric_limits<T>::max());
+        R.push_back(std::numeric_limits<T>::max());
+
+        size_t i = 0;
+        size_t j = 0;
+
+        for (size_t k = p; k <= r; k++)
+        {
+            if (L[i] <= R[j])
+            {
+                v[k] = L[i];
+                i++;
+            } else
+            {
+                v[k] = R[j];
+                j++;
+            }
+        }
+    }
+
+    template<typename T>
+    void merge_sort(std::vector<T> &v, size_t p, size_t r)
+    {
+        if (p < r)
+        {
+            size_t q = (size_t)floor((p + r) / 2);
+            merge_sort(v, p, q);
+            merge_sort(v, q + 1, r);
+            merge(v, p, q, r);
         }
     }
 

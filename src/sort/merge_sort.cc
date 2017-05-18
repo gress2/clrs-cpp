@@ -1,8 +1,8 @@
 //
 // Created by Collin Gress on 12/10/16.
 //
-#include "../../include/util.h"
-#include "../../include/sort.h"
+#include "../../include/util.hpp"
+#include "../../include/sort.hpp"
 
 using namespace clrs;
 

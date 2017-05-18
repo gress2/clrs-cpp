@@ -4,8 +4,8 @@
 #include <vector>
 #include <bitset>
 
-#include "../../include/util.h"
-#include "../../include/bitops.h"
+#include "../../include/util.hpp"
+#include "../../include/bitops.hpp"
 
 using namespace clrs;
 
